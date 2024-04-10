@@ -1,8 +1,9 @@
-import BarChart from '../components/BarChart/BarChart.tsx';
+import LineChart from '../components/LineChart/LineChart.tsx';
 
 export default function ApiPage() {
-  console.log('apikey:::');
-  console.log(import.meta.env.VITE_STOCK_API_KEY);
+  console.log('API KEY: ', import.meta.env.VITE_STOCK_API_KEY);
+  console.log('.ENV STOCK NAME: ', import.meta.env.VITE_STOCK_API_KEY);
+  // https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=IWDA.AMS&apikey=YYZTG9TJ9YN8FTWH
   return (
     <div>
       <h1 className="text-2xl">ApiPage</h1>
@@ -14,7 +15,7 @@ export default function ApiPage() {
       </p>
       <h2 className="text-xl">Nivo Bar Chart:</h2>
       <div className="h-64 w-full">
-        <BarChart />
+        <LineChart />
       </div>
       {/* <p>KEY: {}</p> */}
     </div>
