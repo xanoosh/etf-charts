@@ -7,8 +7,10 @@ export default function Menu() {
   ];
   return (
     <nav>
-      {menubar.map(({ name, link }) => (
-        <Link to={link}>{name}</Link>
+      {menubar.map(({ name, link }, i) => (
+        <Link key={i} to={link}>
+          {name}
+        </Link>
       ))}
     </nav>
   );

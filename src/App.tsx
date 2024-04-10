@@ -3,10 +3,12 @@ import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <>
+    <main>
       <Menu />
-      <Outlet />
-    </>
+      <section>
+        <Outlet />
+      </section>
+    </main>
   );
 }
 
