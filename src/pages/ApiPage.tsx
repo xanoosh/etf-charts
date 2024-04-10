@@ -1,6 +1,8 @@
 import BarChart from '../components/BarChart/BarChart.tsx';
 
 export default function ApiPage() {
+  console.log('apikey:::');
+  console.log(import.meta.env.VITE_STOCK_API_KEY);
   return (
     <div>
       <h1 className="text-2xl">ApiPage</h1>
@@ -14,6 +16,7 @@ export default function ApiPage() {
       <div className="h-64 w-full">
         <BarChart />
       </div>
+      {/* <p>KEY: {}</p> */}
     </div>
   );
 }
