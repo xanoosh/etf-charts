@@ -6,7 +6,7 @@ export default function ApiPage() {
   // https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=IWDA.AMS&apikey=YYZTG9TJ9YN8FTWH
   return (
     <div>
-      <h1 className="text-2xl">ApiPage</h1>
+      <h1 className="text-2xl mb-4">ApiPage</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur,
         amet sunt. Corrupti, inventore perspiciatis alias perferendis dicta iste

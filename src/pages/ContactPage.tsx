@@ -1,7 +1,7 @@
-export default function DescriptionPage() {
+export default function ContactPage() {
   return (
     <div>
-      <h1 className="text-2xl mb-4">DescriptionPage</h1>
+      <h1 className="text-2xl mb-4">Contact</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur,
         amet sunt. Corrupti, inventore perspiciatis alias perferendis dicta iste

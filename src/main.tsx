@@ -6,11 +6,14 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Error from './components/Error/Error.tsx';
 import Loading from './components/Loading/Loading.tsx';
 import './index.css';
+import ContactPage from './pages/ContactPage.jsx';
 
 const DescriptionPageLazy = React.lazy(
   () => import('./pages/DescriptionPage.jsx')
 );
 const ApiPageLazy = React.lazy(() => import('./pages/ApiPage.jsx'));
+
+const ContactPageLazy = React.lazy(() => import('./pages/ContactPage.jsx'));
 
 const queryClient = new QueryClient();
 
@@ -34,6 +37,15 @@ const router = createBrowserRouter([
         element: (
           <React.Suspense fallback={<Loading />}>
             <ApiPageLazy />
+          </React.Suspense>
+        ),
+        errorElement: <Error />,
+      },
+      {
+        path: 'contact',
+        element: (
+          <React.Suspense fallback={<Loading />}>
+            <ContactPageLazy />
           </React.Suspense>
         ),
         errorElement: <Error />,
