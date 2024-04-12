@@ -1,4 +1,4 @@
-import example from '../example.json';
+import example from '../mockEtfData.json';
 
 export default function formatLineChartData() {
   const id = example?.['Meta Data']?.['2. Symbol'];

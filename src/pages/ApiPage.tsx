@@ -15,9 +15,8 @@ export default function ApiPage() {
       </p>
       <h2 className="text-xl">Nivo Bar Chart:</h2>
       <div className="h-64 w-full">
-        <LineChart />
+        <LineChart options="nivo" />
       </div>
-      {/* <p>KEY: {}</p> */}
     </div>
   );
 }
