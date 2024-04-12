@@ -1,3 +1,5 @@
+import Loading from '../components/Loading/Loading';
+
 export default function ContactPage() {
   return (
     <div>
@@ -8,6 +10,7 @@ export default function ContactPage() {
         porro quas sed vel dolor veritatis delectus. Iure quas reiciendis vitae
         commodi?
       </p>
+      <Loading />
     </div>
   );
 }

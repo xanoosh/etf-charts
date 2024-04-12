@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Error from './components/Error/Error.tsx';
 import Loading from './components/Loading/Loading.tsx';
 import './index.css';
-import ContactPage from './pages/ContactPage.jsx';
 
 const DescriptionPageLazy = React.lazy(
   () => import('./pages/DescriptionPage.jsx')
