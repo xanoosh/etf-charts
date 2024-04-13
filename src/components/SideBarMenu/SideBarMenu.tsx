@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
   ChartBarSquareIcon,
   HomeIcon,
@@ -31,7 +31,7 @@ export default function SideBarMenu() {
         data-drawer-toggle="default-sidebar"
         aria-controls="default-sidebar"
         type="button"
-        className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-slate-500 rounded-lg sm:hidden hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:text-slate-400 dark:hover:bg-slate-700 dark:focus:ring-slate-600"
+        className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-slate-500 rounded-lg md:hidden hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:text-slate-400 dark:hover:bg-slate-700 dark:focus:ring-slate-600"
       >
         <span className="sr-only">Open sidebar</span>
         <Bars3Icon className="w-6 h-6" />
@@ -39,22 +39,27 @@ export default function SideBarMenu() {
 
       <aside
         id="default-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full md:translate-x-0"
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-slate-50 dark:bg-slate-800">
           <ul className="space-y-2 font-medium">
             {menubar.map(({ name, link, icon }, i) => (
-              <li>
-                <Link
-                  key={i}
+              <li key={i}>
+                <NavLink
                   to={link}
-                  className="flex items-center p-2 text-slate-900 rounded-lg dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 group"
+                  className={({ isActive }) => {
+                    const navLinkClasses =
+                      'flex items-center p-2 text-slate-900 rounded-lg dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 group';
+                    return isActive
+                      ? `${navLinkClasses} bg-slate-100 dark:bg-slate-700`
+                      : `${navLinkClasses}`;
+                  }}
                 >
                   {getMenuIcon(icon)}
 
                   <span className="flex-1 ms-3 whitespace-nowrap">{name}</span>
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
