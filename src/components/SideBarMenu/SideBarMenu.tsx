@@ -9,7 +9,7 @@ import {
 export default function SideBarMenu() {
   const menubar = [
     { name: 'Dashboard', link: '', icon: 'home' },
-    { name: 'ETF List', link: 'api', icon: 'chart' },
+    { name: 'ETF List', link: 'etf', icon: 'chart' },
     { name: 'Contact', link: 'contact', icon: 'contact' },
   ];
   const getMenuIcon = (iconString: string) => {

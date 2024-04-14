@@ -1,4 +1,4 @@
-import Loading from '../components/Loading/Loading';
+import BumpChart from '../components/BumpChart/BumpChart';
 
 export default function ContactPage() {
   return (
@@ -10,7 +10,7 @@ export default function ContactPage() {
         porro quas sed vel dolor veritatis delectus. Iure quas reiciendis vitae
         commodi?
       </p>
-      <Loading />
+      <BumpChart />
     </div>
   );
 }

@@ -10,7 +10,7 @@ import './index.css';
 const DescriptionPageLazy = React.lazy(
   () => import('./pages/DescriptionPage.jsx')
 );
-const ApiPageLazy = React.lazy(() => import('./pages/ApiPage.jsx'));
+const EtfPageLazy = React.lazy(() => import('./pages/EtfPage.jsx'));
 
 const ContactPageLazy = React.lazy(() => import('./pages/ContactPage.jsx'));
 
@@ -32,10 +32,10 @@ const router = createBrowserRouter([
         errorElement: <Error />,
       },
       {
-        path: 'api',
+        path: 'etf',
         element: (
           <React.Suspense fallback={<Loading />}>
-            <ApiPageLazy />
+            <EtfPageLazy />
           </React.Suspense>
         ),
         errorElement: <Error />,

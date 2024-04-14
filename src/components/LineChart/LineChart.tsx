@@ -11,13 +11,31 @@ export default function LineChart({
   const stockChartData = formatLineChartData();
 
   return (
-    <AspectRatio.Root ratio={16 / 9}>
+    <AspectRatio.Root ratio={16 / 6}>
       <ResponsiveLine
         data={options === 'mock' ? [stockChartData] : example}
         colors={['#4793AF', '#FFC470', '#DD5746', '#8B322C']}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         xScale={{ type: 'point' }}
+        yScale={{ type: 'linear' }}
+        layers={[
+          'grid',
+          'markers',
+          'axes',
+          'areas',
+          'crosshair',
+          'lines',
+          'points',
+          'slices',
+          'mesh',
+          'legends',
+        ]}
         yFormat=" >-.2f"
+        curve="linear"
+        enableGridX={true}
+        enableGridY={false}
+        enablePoints={false}
+        enableCrosshair={true}
         axisTop={null}
         axisRight={null}
         axisBottom={{
@@ -39,7 +57,7 @@ export default function LineChart({
           truncateTickAt: 0,
         }}
         pointSize={3}
-        // pointColor="blue"
+        // pointColor="red"
         pointLabelYOffset={-12}
         enableArea={true}
         areaOpacity={0.1}
