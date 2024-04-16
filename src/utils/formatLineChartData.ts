@@ -2,14 +2,14 @@ import example from '../mockEtfData.json';
 
 export default function formatLineChartData() {
   const id = example?.['Meta Data']?.['2. Symbol'];
-  const data: { x: string; y: string }[] = [];
+  const data: { x: string; y: number }[] = [];
 
   Object.entries(example?.['Monthly Time Series']).forEach(
     ([key, value], i) => {
-      if (i % 10 === 0) {
+      if (i % 12 === 0) {
         data.push({
-          x: key,
-          y: value['4. close'],
+          x: key.split('-')[0],
+          y: Number(value['4. close']) * -1,
         });
       }
     }
@@ -18,7 +18,6 @@ export default function formatLineChartData() {
   data.reverse();
   return {
     id,
-    color: 'red',
     data,
   };
 }

@@ -1,4 +1,5 @@
-import LineChart from '../components/LineChart/LineChart.tsx';
+import BumpChart from '../components/BumpChart/BumpChart.tsx';
+// import LineChart from '../components/LineChart/LineChart.tsx';
 
 export default function ApiPage() {
   // console.log('API KEY: ', import.meta.env.VITE_STOCK_API_KEY);
@@ -16,8 +17,9 @@ export default function ApiPage() {
         </p>
       </div>
       <div>
-        <h2 className="text-xl">Nivo Line Chart:</h2>
-        <LineChart options="nivo" />
+        <h2 className="text-xl">Nivo Bump Chart:</h2>
+        {/* <LineChart options="nivo" /> */}
+        <BumpChart />
       </div>
     </div>
   );

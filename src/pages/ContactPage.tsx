@@ -1,5 +1,3 @@
-import BumpChart from '../components/BumpChart/BumpChart';
-
 export default function ContactPage() {
   return (
     <div>
@@ -10,7 +8,13 @@ export default function ContactPage() {
         porro quas sed vel dolor veritatis delectus. Iure quas reiciendis vitae
         commodi?
       </p>
-      <BumpChart />
+      <ul>
+        <li>Lorem ipsum dolor sit</li>
+        <li>Lorem ipsum dolor sit</li>
+        <li>Lorem ipsum dolor sit</li>
+        <li>Lorem ipsum dolor sit</li>
+        <li>Lorem ipsum dolor sit</li>
+      </ul>
     </div>
   );
 }
