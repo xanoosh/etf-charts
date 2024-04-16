@@ -5,6 +5,8 @@ import {
   EnvelopeIcon,
   Bars3Icon,
 } from '@heroicons/react/24/solid';
+import { useState, useRef } from 'react';
+import { useClickAway } from 'react-use';
 
 export default function SideBarMenu() {
   const menubar = [
@@ -12,6 +14,13 @@ export default function SideBarMenu() {
     { name: 'ETF List', link: 'etf', icon: 'chart' },
     { name: 'Contact', link: 'contact', icon: 'contact' },
   ];
+  const ref = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useClickAway(ref, () => {
+    setIsOpen(false);
+  });
+
   const getMenuIcon = (iconString: string) => {
     const iconsClasses =
       'flex-shrink-0 w-5 h-5 text-slate-500 transition duration-75 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white';
@@ -25,13 +34,11 @@ export default function SideBarMenu() {
     }
   };
   return (
-    <>
+    <div ref={ref}>
       <button
-        data-drawer-target="default-sidebar"
-        data-drawer-toggle="default-sidebar"
-        aria-controls="default-sidebar"
         type="button"
-        className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-slate-500 rounded-lg md:hidden hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:text-slate-400 dark:hover:bg-slate-700 dark:focus:ring-slate-600"
+        className="inline-flex items-center p-2 mt-2 ms-3 text-sm rounded-lg md:hidden bg-slate-700 focus:outline-none focus:ring-2 text-slate-200 hover:bg-slate-600 hover:text-white focus:ring-slate-600"
+        onClick={() => setIsOpen(true)}
       >
         <span className="sr-only">Open sidebar</span>
         <Bars3Icon className="w-6 h-6" />
@@ -39,7 +46,9 @@ export default function SideBarMenu() {
 
       <aside
         id="default-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full md:translate-x-0"
+        className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform md:translate-x-0 ${
+          isOpen ? '' : '-translate-x-full'
+        }`}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-slate-50 dark:bg-slate-800">
@@ -47,6 +56,7 @@ export default function SideBarMenu() {
             {menubar.map(({ name, link, icon }, i) => (
               <li key={i}>
                 <NavLink
+                  onClick={() => setIsOpen(false)}
                   to={link}
                   className={({ isActive }) => {
                     const navLinkClasses =
@@ -65,6 +75,6 @@ export default function SideBarMenu() {
           </ul>
         </div>
       </aside>
-    </>
+    </div>
   );
 }
