@@ -1,15 +1,13 @@
 import { ResponsiveBump } from '@nivo/bump';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
-// import { example } from '../../nivoExmpleChartData';
 import formatLineChartData from '../../utils/formatLineChartData';
 
 export default function BumpChart() {
   const stockChartData = formatLineChartData();
-  console.log('stockChartData', [stockChartData]);
   return (
     <AspectRatio.Root ratio={16 / 9}>
       <ResponsiveBump
-        data={[stockChartData]}
+        data={stockChartData}
         colors={{ scheme: 'spectral' }}
         lineWidth={3}
         activeLineWidth={6}

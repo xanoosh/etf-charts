@@ -3,9 +3,7 @@ import BumpChart from '../components/BumpChart/BumpChart.tsx';
 // import LineChart from '../components/LineChart/LineChart.tsx';
 
 export default function ApiPage() {
-  // console.log('API KEY: ', import.meta.env.VITE_STOCK_API_KEY);
-  // console.log('.ENV STOCK NAME: ', import.meta.env.VITE_STOCK_API_KEY);
-  // https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=IWDA.AMS&apikey=YYZTG9TJ9YN8FTWH
+  // example api call:  https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=IWDA.AMS&apikey=YYZTG9TJ9YN8FTWH
   return (
     <div className="flex flex-col gap-4">
       <div>
@@ -23,6 +21,8 @@ export default function ApiPage() {
         <BumpChart />
       </div>
       <Link to="IWDA">Show IWDA Modal</Link>
+      <Link to="Gold">Show Gold Modal</Link>
+      <Link to="Bitcoin">Show Bitcoin Modal</Link>
       <Outlet />
     </div>
   );
