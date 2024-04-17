@@ -2,6 +2,9 @@
 import iwda from '../mockEtfData/iwda.json';
 import gold from '../mockEtfData/gold.json';
 import bitcoin from '../mockEtfData/bitcoin.json';
+import sp500dist from '../mockEtfData/sp500dist.json';
+import sp500acc from '../mockEtfData/sp500acc.json';
+import naturalGas from '../mockEtfData/naturalGas.json';
 
 export interface singleApiCallInterface {
   'Meta Data': MetaData;
@@ -40,7 +43,7 @@ function formatSingleChartLine(
       }
     }
     if (variant === 'line') {
-      if (i % 4 === 0) {
+      if (i % 3 === 0) {
         data.push({
           x: `${key.split('-')[1]}-${key.split('-')[0]}`,
           y: Number(value['4. close']),
@@ -61,6 +64,9 @@ export function formatBumpChartData() {
     formatSingleChartLine(iwda, 'bump'),
     formatSingleChartLine(gold, 'bump'),
     formatSingleChartLine(bitcoin, 'bump'),
+    formatSingleChartLine(sp500dist, 'bump'),
+    formatSingleChartLine(sp500acc, 'bump'),
+    formatSingleChartLine(naturalGas, 'bump'),
   ];
 }
 
@@ -72,6 +78,12 @@ export function formatSingleLineChartData(ticker: string) {
       return [formatSingleChartLine(gold, 'line')];
     case 'BTCE.AMS':
       return [formatSingleChartLine(bitcoin, 'line')];
+    case 'CSPX.AMS':
+      return [formatSingleChartLine(sp500acc, 'line')];
+    case 'IUSA.AMS':
+      return [formatSingleChartLine(sp500dist, 'line')];
+    case 'NGAS.LON':
+      return [formatSingleChartLine(naturalGas, 'line')];
     default:
       return null;
   }
