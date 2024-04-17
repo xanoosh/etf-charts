@@ -10,9 +10,13 @@ import './index.css';
 const DescriptionPageLazy = React.lazy(
   () => import('./pages/DescriptionPage.jsx')
 );
-const EtfPageLazy = React.lazy(() => import('./pages/EtfPage.jsx'));
+const EtfPageLazy = React.lazy(() => import('./pages/EtfPage.tsx'));
 
-const ContactPageLazy = React.lazy(() => import('./pages/ContactPage.jsx'));
+const ContactPageLazy = React.lazy(() => import('./pages/ContactPage.tsx'));
+
+const EtfModalLazy = React.lazy(
+  () => import('./components/EtfModal/EtfModal.tsx')
+);
 
 const queryClient = new QueryClient();
 
@@ -38,6 +42,17 @@ const router = createBrowserRouter([
             <EtfPageLazy />
           </React.Suspense>
         ),
+        children: [
+          {
+            path: ':stockName',
+            element: (
+              <React.Suspense fallback={<Loading />}>
+                <EtfModalLazy />
+              </React.Suspense>
+            ),
+            errorElement: <Error />,
+          },
+        ],
         errorElement: <Error />,
       },
       {

@@ -1,3 +1,4 @@
+import { Link, Outlet } from 'react-router-dom';
 import BumpChart from '../components/BumpChart/BumpChart.tsx';
 // import LineChart from '../components/LineChart/LineChart.tsx';
 
@@ -21,6 +22,8 @@ export default function ApiPage() {
         {/* <LineChart options="nivo" /> */}
         <BumpChart />
       </div>
+      <Link to="IWDA">Show IWDA Modal</Link>
+      <Outlet />
     </div>
   );
 }
