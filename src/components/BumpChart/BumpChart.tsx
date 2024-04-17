@@ -1,9 +1,11 @@
 import { ResponsiveBump } from '@nivo/bump';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
-import formatLineChartData from '../../utils/formatLineChartData';
+import { formatBumpChartData } from '../../utils/formatChartData';
+import { useNavigate } from 'react-router-dom';
 
 export default function BumpChart() {
-  const stockChartData = formatLineChartData();
+  const navigate = useNavigate();
+  const stockChartData = formatBumpChartData();
   return (
     <AspectRatio.Root ratio={16 / 9}>
       <ResponsiveBump
@@ -38,6 +40,7 @@ export default function BumpChart() {
           legendOffset: 32,
           truncateTickAt: 0,
         }}
+        onClick={({ id }) => navigate(id)}
         margin={{ top: 40, right: 100, bottom: 40, left: 60 }}
         axisRight={null}
       />

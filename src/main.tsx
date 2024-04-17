@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         ),
         children: [
           {
-            path: ':stockName',
+            path: ':ticker',
             element: (
               <React.Suspense fallback={<Loading />}>
                 <EtfModalLazy />
