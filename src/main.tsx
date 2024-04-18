@@ -18,6 +18,14 @@ const EtfModalLazy = React.lazy(
   () => import('./components/EtfModal/EtfModal.tsx')
 );
 
+const HistoryTabLazy = React.lazy(
+  () => import('./components/EtfModal/Tabs/HistoryTab.tsx')
+);
+
+const CountriesTabLazy = React.lazy(
+  () => import('./components/EtfModal/Tabs/CountriesTab.tsx')
+);
+
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -50,6 +58,26 @@ const router = createBrowserRouter([
                 <EtfModalLazy />
               </React.Suspense>
             ),
+            children: [
+              {
+                path: 'history',
+                element: (
+                  <React.Suspense fallback={<Loading />}>
+                    <HistoryTabLazy />
+                  </React.Suspense>
+                ),
+                errorElement: <Error />,
+              },
+              {
+                path: 'countries',
+                element: (
+                  <React.Suspense fallback={<Loading />}>
+                    <CountriesTabLazy />
+                  </React.Suspense>
+                ),
+                errorElement: <Error />,
+              },
+            ],
             errorElement: <Error />,
           },
         ],

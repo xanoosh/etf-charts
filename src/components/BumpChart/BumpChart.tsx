@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 export default function BumpChart() {
   const navigate = useNavigate();
   const stockChartData = formatBumpChartData();
-  console.log(stockChartData);
   return (
     <AspectRatio.Root ratio={16 / 9}>
       <ResponsiveBump
@@ -25,7 +24,7 @@ export default function BumpChart() {
         pointBorderColor={{ from: 'serie.color' }}
         axisBottom={null}
         enableGridY={false}
-        onClick={({ id }) => navigate(id)}
+        onClick={({ id }) => navigate(`${id}/history`)}
         margin={{ top: 40, right: 100, bottom: 40, left: 60 }}
         axisRight={null}
         axisLeft={null}
