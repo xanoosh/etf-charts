@@ -26,30 +26,28 @@ export default function EtfModal() {
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div className="flex min-h-full justify-center p-4 text-center items-center">
             <Transition.Child as={Fragment}>
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
-                <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                  <div className="sm:flex sm:items-start relative  w-full">
-                    <button
-                      onClick={handleCloseModal}
-                      className="absolute top-0 right-0 mx-auto flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-slate-100 sm:mx-0 sm:h-10 sm:w-10"
+              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all my-8 w-full max-w-2xl">
+                <div className="bg-white px-4 pb-4 pt-5 flex items-start relative w-full">
+                  <button
+                    onClick={handleCloseModal}
+                    className="absolute top-2 right-2 mx-auto flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full"
+                  >
+                    <XMarkIcon
+                      className="h-5 w-5 text-slate-800"
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <div className="ml-4 mt-0 text-left w-full">
+                    <Dialog.Title
+                      as="h3"
+                      className="text-base font-semibold leading-6 text-gray-900"
                     >
-                      <XMarkIcon
-                        className="h-5 w-5 text-slate-800"
-                        aria-hidden="true"
-                      />
-                    </button>
-                    <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
-                      <Dialog.Title
-                        as="h3"
-                        className="text-base font-semibold leading-6 text-gray-900"
-                      >
-                        {ticker}
-                      </Dialog.Title>
-                      <ModalTabs />
-                      <Outlet />
-                    </div>
+                      {ticker}
+                    </Dialog.Title>
+                    <ModalTabs />
+                    <Outlet />
                   </div>
                 </div>
               </Dialog.Panel>

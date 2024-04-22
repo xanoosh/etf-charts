@@ -1,5 +1,6 @@
 import { ResponsivePie } from '@nivo/pie';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
+import { useMedia } from 'react-use';
 
 const data = [
   {
@@ -35,12 +36,16 @@ const data = [
 ];
 
 export default function CountriesTab() {
-  //   const { ticker } = useParams();
+  const isMobile = useMedia('(max-width: 640px)');
   return (
     <AspectRatio.Root ratio={16 / 9}>
       <ResponsivePie
         data={data}
-        margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+        margin={
+          isMobile
+            ? { top: 20, right: 20, bottom: 20, left: 20 }
+            : { top: 40, right: 80, bottom: 80, left: 80 }
+        }
         innerRadius={0.5}
         padAngle={0.7}
         cornerRadius={3}
@@ -127,31 +132,6 @@ export default function CountriesTab() {
               id: 'javascript',
             },
             id: 'lines',
-          },
-        ]}
-        legends={[
-          {
-            anchor: 'bottom',
-            direction: 'row',
-            justify: false,
-            translateX: 0,
-            translateY: 56,
-            itemsSpacing: 0,
-            itemWidth: 100,
-            itemHeight: 18,
-            itemTextColor: '#999',
-            itemDirection: 'left-to-right',
-            itemOpacity: 1,
-            symbolSize: 18,
-            symbolShape: 'circle',
-            effects: [
-              {
-                on: 'hover',
-                style: {
-                  itemTextColor: '#000',
-                },
-              },
-            ],
           },
         ]}
       />

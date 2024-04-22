@@ -14,7 +14,7 @@ export default function LineChart({ ticker }: { ticker?: string }) {
     <AspectRatio.Root ratio={16 / 9}>
       <ResponsiveLine
         data={chartData}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ left: 60, right: 20, bottom: 20 }}
         xScale={{ type: 'point' }}
         yScale={{
           type: 'linear',
