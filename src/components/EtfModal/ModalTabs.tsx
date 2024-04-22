@@ -2,15 +2,15 @@ import { NavLink } from 'react-router-dom';
 
 export default function ModalTabs() {
   return (
-    <ul className="flex flex-wrap text-sm font-medium text-center border-b border-slate-200 my-4">
+    <ul className="flex flex-wrap text-sm font-medium text-center border-b border-slate-300 my-4">
       <li className="me-2">
         <NavLink
           to="history"
           className={({ isActive }) => {
-            const navLinkClasses = 'inline-block px-3 py-1 rounded-t-md';
+            const navLinkClasses = 'inline-block px-2 py-1';
             return isActive
-              ? `${navLinkClasses} bg-slate-700 text-white`
-              : `${navLinkClasses} text-slate-700 bg-slate-100 hover:bg-slate-300`;
+              ? `${navLinkClasses} text-violet-600 border-b-2 border-violet-600`
+              : `${navLinkClasses} text-slate-700`;
           }}
         >
           History
@@ -20,10 +20,10 @@ export default function ModalTabs() {
         <NavLink
           to="countries"
           className={({ isActive }) => {
-            const navLinkClasses = 'inline-block px-3 py-1 rounded-t-md';
+            const navLinkClasses = 'inline-block px-2 py-1';
             return isActive
-              ? `${navLinkClasses} bg-slate-700 text-white`
-              : `${navLinkClasses} text-slate-700 bg-slate-100 hover:bg-slate-300`;
+              ? `${navLinkClasses} text-violet-600 border-b-2 border-violet-600`
+              : `${navLinkClasses} text-slate-700`;
           }}
         >
           Countries

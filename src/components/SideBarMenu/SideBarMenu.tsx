@@ -23,7 +23,7 @@ export default function SideBarMenu() {
 
   const getMenuIcon = (iconString: string) => {
     const iconsClasses =
-      'flex-shrink-0 w-5 h-5 text-slate-500 transition duration-75 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white';
+      'flex-shrink-0 w-5 h-5 transition duration-75 text-white';
     switch (iconString) {
       case 'home':
         return <HomeIcon className={iconsClasses} />;
@@ -51,7 +51,7 @@ export default function SideBarMenu() {
         }`}
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 py-4 overflow-y-auto bg-slate-50 dark:bg-slate-800">
+        <div className="h-full px-3 py-4 overflow-y-auto bg-slate-800">
           <ul className="space-y-2 font-medium">
             {menubar.map(({ name, link, icon }, i) => (
               <li key={i}>
@@ -60,10 +60,10 @@ export default function SideBarMenu() {
                   to={link}
                   className={({ isActive }) => {
                     const navLinkClasses =
-                      'flex items-center p-2 text-slate-900 rounded-lg dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 group';
+                      'flex items-center p-2 rounded-lg text-white group';
                     return isActive
-                      ? `${navLinkClasses} bg-slate-100 dark:bg-slate-700`
-                      : `${navLinkClasses}`;
+                      ? `${navLinkClasses} bg-violet-600`
+                      : `${navLinkClasses} hover:bg-slate-700`;
                   }}
                 >
                   {getMenuIcon(icon)}
