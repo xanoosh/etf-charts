@@ -26,6 +26,10 @@ const CountriesTabLazy = React.lazy(
   () => import('./components/EtfModal/Tabs/CountriesTab.tsx')
 );
 
+const DescriptionTabLazy = React.lazy(
+  () => import('./components/EtfModal/Tabs/DescriptionTab.tsx')
+);
+
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -62,7 +66,9 @@ const router = createBrowserRouter([
               {
                 path: 'history',
                 element: (
-                  <React.Suspense fallback={<Loading />}>
+                  <React.Suspense
+                    fallback={<Loading strokeWidth="1" width="30" />}
+                  >
                     <HistoryTabLazy />
                   </React.Suspense>
                 ),
@@ -71,8 +77,21 @@ const router = createBrowserRouter([
               {
                 path: 'countries',
                 element: (
-                  <React.Suspense fallback={<Loading />}>
+                  <React.Suspense
+                    fallback={<Loading strokeWidth="1" width="30" />}
+                  >
                     <CountriesTabLazy />
+                  </React.Suspense>
+                ),
+                errorElement: <Error />,
+              },
+              {
+                path: 'description',
+                element: (
+                  <React.Suspense
+                    fallback={<Loading strokeWidth="1" width="30" />}
+                  >
+                    <DescriptionTabLazy />
                   </React.Suspense>
                 ),
                 errorElement: <Error />,
