@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { useParams, useNavigate, Outlet } from 'react-router-dom';
-import ModalTabs from './ModalTabs';
+import ModalNav from './ModalNav';
 
 export default function EtfModal() {
   const { ticker } = useParams();
@@ -46,8 +46,10 @@ export default function EtfModal() {
                     >
                       {ticker}
                     </Dialog.Title>
-                    <ModalTabs />
-                    <Outlet />
+                    <ModalNav />
+                    <div className="h-96 overflow-y-scroll">
+                      <Outlet />
+                    </div>
                   </div>
                 </div>
               </Dialog.Panel>

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-export default function ModalTabs() {
+export default function ModalNav() {
   return (
     <ul className="flex flex-wrap text-sm font-medium text-center border-b border-slate-300 my-4">
       <li className="me-2">
