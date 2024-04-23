@@ -66,9 +66,7 @@ const router = createBrowserRouter([
               {
                 path: 'history',
                 element: (
-                  <React.Suspense
-                    fallback={<Loading strokeWidth="1" width="30" />}
-                  >
+                  <React.Suspense fallback={<Loading variant="sm" />}>
                     <HistoryTabLazy />
                   </React.Suspense>
                 ),
@@ -77,9 +75,7 @@ const router = createBrowserRouter([
               {
                 path: 'countries',
                 element: (
-                  <React.Suspense
-                    fallback={<Loading strokeWidth="1" width="30" />}
-                  >
+                  <React.Suspense fallback={<Loading variant="sm" />}>
                     <CountriesTabLazy />
                   </React.Suspense>
                 ),
@@ -88,9 +84,7 @@ const router = createBrowserRouter([
               {
                 path: 'description',
                 element: (
-                  <React.Suspense
-                    fallback={<Loading strokeWidth="1" width="30" />}
-                  >
+                  <React.Suspense fallback={<Loading variant="sm" />}>
                     <DescriptionTabLazy />
                   </React.Suspense>
                 ),
